@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway AI Control Room</title>
+    <meta http-equiv="refresh" content="3">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .header {
+            background: #111827;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #1f2937;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #111827;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 22%;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .card h2 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .HIGH { color: #ff3b3b; font-weight: bold; }
+        .MEDIUM { color: orange; font-weight: bold; }
+        .LOW { color: #22c55e; font-weight: bold; }
+
+        table {
+            width: 95%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: #1e293b;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #0f172a;
+            border-bottom: 2px solid #334155;
+        }
+
+        tr:nth-child(even) {
+            background-color: #0f172a;
+        }
+
+        tr:hover {
+            background-color: #334155;
+        }
+
+        .status-bar {
+            text-align: center;
+            padding: 10px;
+            background: #111827;
+            border-top: 2px solid #1f2937;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    🚆 RAILWAY AI CENTRAL CONTROL ROOM
+</div>
+
+<div class="stats">
+    <div class="card">
+        <div>Total Alerts</div>
+        <h2>{{ alerts|length }}</h2>
+    </div>
+
+    <div class="card">
+        <div>High Severity</div>
+        <h2 class="HIGH">
+            {{ alerts|selectattr("severity","equalto","HIGH")|list|length }}
+        </h2>
+    </div>
+
+    <div class="card">
+        <div>Medium Severity</div>
+        <h2 class="MEDIUM">
+            {{ alerts|selectattr("severity","equalto","MEDIUM")|list|length }}
+        </h2>
+    </div>
+
+    <div class="card">
+        <div>Low Severity</div>
+        <h2 class="LOW">
+            {{ alerts|selectattr("severity","equalto","LOW")|list|length }}
+        </h2>
+    </div>
+</div>
+
+<table>
+    <tr>
+        <th>Ticket ID</th>
+        <th>Time</th>
+        <th>Station</th>
+        <th>Speed</th>
+        <th>Severity</th>
+        <th>Action</th>
+    </tr>
+
+    {% for alert in alerts[::-1] %}
+    <tr>
+        <td>{{ alert.ticket_id }}</td>
+        <td>{{ alert.time }}</td>
+        <td>{{ alert.station }}</td>
+        <td>{{ alert.speed }} km/h</td>
+        <td class="{{ alert.severity }}">{{ alert.severity }}</td>
+        <td>{{ alert.action }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="status-bar">
+    System Status: ONLINE | Auto-refresh every 3 seconds | Railway AI v1.0
+</div>
+
+</body>
+</html>

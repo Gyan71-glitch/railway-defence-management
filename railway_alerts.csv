@@ -1,0 +1,19 @@
+ID,Time,Severity,Action,Source,Status
+1,2026-02-08 15:29:52,LOW,Monitor track,AI Camera,SENT
+2,2026-02-08 15:30:14,HIGH,STOP train & notify station,AI Camera,SENT
+3,2026-02-08 15:30:22,LOW,Monitor track,AI Camera,SENT
+4,2026-02-08 15:30:36,MEDIUM,Reduce speed,AI Camera,SENT
+5,2026-02-08 15:30:44,HIGH,STOP train & notify station,AI Camera,SENT
+6,2026-02-08 15:31:14,HIGH,STOP train & notify station,AI Camera,SENT
+7,2026-02-08 15:31:34,HIGH,STOP train & notify station,AI Camera,SENT
+8,2026-02-08 15:31:42,MEDIUM,Reduce speed,AI Camera,SENT
+9,2026-02-08 15:32:02,MEDIUM,Reduce speed,AI Camera,SENT
+10,2026-02-08 15:32:22,HIGH,STOP train & notify station,AI Camera,SENT
+11,2026-02-08 15:32:26,LOW,Monitor track,AI Camera,SENT
+12,2026-02-08 15:32:54,HIGH,STOP train & notify station,AI Camera,SENT
+13,2026-02-08 15:32:56,HIGH,STOP train & notify station,AI Camera,SENT
+14,2026-02-08 15:33:20,HIGH,STOP train & notify station,AI Camera,SENT
+15,2026-02-08 19:19:18,MEDIUM,Reduce speed,AI Camera,SENT
+16,2026-02-08 19:19:26,HIGH,STOP train & notify station,AI Camera,SENT
+17,2026-02-08 19:19:34,LOW,Monitor track,AI Camera,SENT
+18,2026-02-08 19:19:46,LOW,Monitor track,AI Camera,SENT
